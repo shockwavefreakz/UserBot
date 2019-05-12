@@ -18,7 +18,7 @@ from userbot.events import register
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = ("You aren't permitted to pm.\n\n"
                   "Wait for my master to come online \n\n"
-                  "As far as I know, he is a nice guy :D")
+                  "As far as I know, he is a nice guy.")
 # =================================================================
 
 
