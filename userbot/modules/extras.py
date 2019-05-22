@@ -162,6 +162,13 @@ async def rextestercli(e):
 
         await e.edit(output)
 
+@register(outgoing=True, pattern="^.repeat")
+async def inlinespem(e):
+    message = e.text[8:-4]
+    count = int(e.text[-3:])
+    final = message * count
+    await e.respond(final)
+
 
 HELPER.update({
     "leave": "Leave a Chat"
