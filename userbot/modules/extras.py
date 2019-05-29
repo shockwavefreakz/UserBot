@@ -162,6 +162,15 @@ async def rextestercli(e):
 
         await e.edit(output)
 
+@register(outgoing=True, pattern="^.repeat")
+async def inlinespem(e):
+    #defmessage = e.text[0]
+    message = e.text[8:-4]
+    count = int(e.text[-3:])
+    final = message * count
+    await e.respond(final)
+    await e.delete()
+
 
 
 HELPER.update({
