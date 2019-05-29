@@ -482,12 +482,6 @@ async def typewriter(typew):
             await typew.edit(old_text)
             await asyncio.sleep(sleep_time)
 
-@register(outgoing=True, pattern="^.repeat")
-async def inlinespem(e):
-    message = e.text[8:-4]
-    count = int(e.text[-3:])
-    final = message * count
-    await e.respond(final)
 
 
 HELPER.update({
