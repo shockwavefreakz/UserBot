@@ -39,14 +39,14 @@ async def inlinespem(e):
 @register(outgoing=True, pattern="^;__;$")
 async def fun(e):
     t = ";__;"
-    for j in range(10):
+    for j in range(30):
         t = t[:-1] + "_;"
         await e.edit(t)
 
 @register(outgoing=True, pattern="^Oof$")
 async def Oof(e):
     t = "Oof"
-    for j in range(15):
+    for j in range(18):
         t = t[:-1] + "of"
         await e.edit(t)
 
@@ -73,7 +73,7 @@ async def _(event):
 @register(outgoing=True, pattern="^.sauce$")
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("https://github.com/Yasir-siddiqui/Userbot/")
+        await e.edit("https://github.com/thatspix/UserBot/")
 
 @register(outgoing=True, pattern="^.readme$")
 async def reedme(e):
@@ -201,7 +201,7 @@ async def carbon_api(e):
         url = CARBON.format(code=code, lang=LANG)
         chrome_options = Options()
         chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--window-size=1920x1080")
+        chrome_options.add_argument("--window-size=1280x720")
         chrome_options.add_argument("--disable-dev-shm-usage")
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument('--disable-gpu')
@@ -218,7 +218,7 @@ async def carbon_api(e):
 
         driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
         sleep(3)  # this might take a bit.
-        await e.edit("Processing 50%")
+        await e.edit("Processing 60%")
         driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
         sleep(3)  # Waiting for downloading
 
