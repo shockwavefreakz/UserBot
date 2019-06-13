@@ -163,3 +163,4 @@ HELPER.update({
 \nUsage: Kang's the sticker/image to the specified pack but uses 🤔 as emoji.\
 \n\n\nPlease kang this. Made by @rupansh."
 })
+
