@@ -27,6 +27,13 @@ async def leave(e):
         else:
             await e.edit('`Sar This is Not A Chat`')
 
+@register(outgoing=True, pattern="^Reep$")
+async def Reep(e):
+    t = "Reep"
+    for j in range(25):
+        t = t[:-1] + "ep"
+        await e.edit(t)
+
 @register(outgoing=True, pattern="^.repeat")
 async def inlinespem(e):
     #defmessage = e.text[0]
