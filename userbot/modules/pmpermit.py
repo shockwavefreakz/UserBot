@@ -9,16 +9,17 @@
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest
 from telethon.tl.functions.users import GetFullUserRequest
-from sqlalchemy.exc import IntegrityError 
+from sqlalchemy.exc import IntegrityError
 
 from userbot import (COUNT_PM, HELPER, LOGGER, LOGGER_GROUP, NOTIF_OFF,
                      PM_AUTO_BAN, BRAIN_CHECKER, LASTMSG, LOGS)
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
-UNAPPROVED_MSG = ("You aren't permitted to pm.\n\n"
-                  "Wait for my master to come online \n\n"
-                  "As far as I know, he is a nice guy.")
+UNAPPROVED_MSG = ("Bleep blop! This is a bot. Don't fret.\n\n"
+                  "My master hasn't approved you to PM."
+                  " Please wait for my master to look in, he mostly approves PMs.\n\n"
+                  "As far as I know, he doesn't usually approve retards though.")
 # =================================================================
 
 
@@ -58,10 +59,10 @@ async def permitpm(event):
                 else:
                     COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
-                if COUNT_PM[event.chat_id] > 8:
+                if COUNT_PM[event.chat_id] > 4:
                     await event.respond(
                         "`You were spamming my master's PM, which I don't like.`"
-                        " `You will be blocked now.`"
+                        " `I'mma Report Spam.`"
                     )
 
                     try:
@@ -112,6 +113,7 @@ async def approvepm(apprvpm):
             from userbot.modules.sql_helper.pm_permit_sql import approve
         except AttributeError:
             await apprvpm.edit("`Running on Non-SQL mode!`")
+            await apprvpm.delete()
             return
 
         if apprvpm.reply_to_msg_id:
@@ -130,11 +132,13 @@ async def approvepm(apprvpm):
             approve(uid)
         except IntegrityError:
             await apprvpm.edit("`User may already be approved.`")
+            await apprvpm.delete()
             return
 
         await apprvpm.edit(
             f"[{name0}](tg://user?id={uid}) `approved to PM!`"
         )
+        await apprvpm.delete()
 
         if LOGGER:
             await apprvpm.client.send_message(
