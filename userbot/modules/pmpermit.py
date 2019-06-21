@@ -16,7 +16,7 @@ from userbot import (COUNT_PM, HELPER, LOGGER, LOGGER_GROUP, NOTIF_OFF,
 from userbot.events import register
 
 # ========================= CONSTANTS ============================
-UNAPPROVED_MSG = ("You aren't approved to PM.\n\"
+UNAPPROVED_MSG = ("You aren't approved to PM.\n\n"
                   "Please wait for him to look in, he will mostly approve PMs.\n\n"
                   "As far as I know, he is a good guy 😄")
 # =================================================================
