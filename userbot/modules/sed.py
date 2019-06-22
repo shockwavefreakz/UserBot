@@ -106,7 +106,7 @@ async def sed(command):
             await command.edit("B O I! [Learn Regex](https://regexone.com)")
             return
         if text:
-            await command.edit("Did you mean? \n\n`" + text + "`")
+            await command.edit(text)
 
 HELPER.update({
     "sed": "sed<delimiter><old word(s)><delimiter><new word(s)>\
