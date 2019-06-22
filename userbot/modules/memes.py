@@ -217,11 +217,11 @@ async def kek(keks):
         await keks.edit(":" + uio[i % 2])
 
 
-@register(outgoing=True, pattern="^-_-$")
+@register(outgoing=True, pattern="^-__-$")
 async def lol(lel):
     """ Ok... """
-    okay = "-_-"
-    for _ in range(10):
+    okay = "-__-"
+    for _ in range(40):
         okay = okay[:-1] + "_-"
         await lel.edit(okay)
 
